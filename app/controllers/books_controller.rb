@@ -9,6 +9,7 @@ class BooksController < ApplicationController
      @book.user_id = current_user.id
      @book.save
      flash[:notice] = "Signed out successfully."
+     
      redirect_to book_path(book.id)
   end
   
@@ -18,10 +19,14 @@ class BooksController < ApplicationController
   end
   
   def show
+       @book = Book.find(params[:id])  
   end
 
   def destroy
   end
   
   private
+  def book_params
+    params.require(:book).permit(:shop_name, :image, :caption)
+  end
 end
