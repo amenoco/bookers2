@@ -1,13 +1,23 @@
-<%= render 'book', books: @books %>
-<div class="col-md 8offset-md-1">
-  <h2>Books</h2>
-  <table class="table table-hover table-inverse">
-    <thead>
-      <th>
-        <th>Title</th>
-        <th>Opinion</th>
-        <th colspan="3"></th>
-      </th>
-    </thead>
-  </table>
+<div class="container px-5 px-sm-0">
+  <%= flash[:notice] %>
+  <div class="row">
+
+  <%= render 'book', books: @books %>
+
+    <div class="col-md 8offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+  <% @books.each do |book| %>
+        <thead>
+          <th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+       
+          </th>
+        </thead>
+  <% end %>
+      </table>
+    </div>
+  </div>
 </div>
