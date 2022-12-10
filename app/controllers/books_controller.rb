@@ -7,19 +7,18 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+    @user = current_user
 
   end
   def create
-     @book = Book.new(book_params)
-       
-     @book.save
-      if @book.save
-      	redirect_to book_path(book.id)
-  	  else
-		render'books/index'
-	end
+    @book = Book.new(book_params)
+    @book = current_user
+    @book.save
+    redirect_to book_path(@book)
+		
 
-     redirect_to book_path(book.id)
+
+
   end
 
 
@@ -27,6 +26,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     flash[:notice] = "Signed in successfully."
   end
+
+
 
   def destroy
   end

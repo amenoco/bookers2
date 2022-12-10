@@ -10,6 +10,11 @@ class Book < ApplicationRecord
           image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
         end
           image
+          
+    with_options presence: true do
+        validates :text
+        validates :image
+  end
          
     end
 end

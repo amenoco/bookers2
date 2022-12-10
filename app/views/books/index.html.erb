@@ -2,12 +2,12 @@
   <%= flash[:notice] %>
   <div class="row">
 
-  <%= render 'book', books: @books %>
+  <%= render 'book', books: @books, user: @user %>
 
     <div class="col-md 8offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
-  <% @books.each do |book| %>
+  <%# @books.each do |book| %>
         <thead>
           <th>
             <th>Title</th>
@@ -16,8 +16,11 @@
        
           </th>
         </thead>
-  <% end %>
+  <%# end %>
       </table>
+      <div class="profile-container">
+        <%= image_tag @user.get_profile_image(100,100) %>
+        <tr>
     </div>
   </div>
 </div>
