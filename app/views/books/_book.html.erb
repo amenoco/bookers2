@@ -1,38 +1,31 @@
 <p id="notice"></p>
 
-      <div class="col-md3">
-        <h2>User info</h2>
-          <table class="table">
-            <tbody>
-            <tr>
-              <%= image_tag user.get_profile_image(100,100) %>
-              <th>
-                name
-              </th>
-              <th>
-                <%= user.name %>
-              </th>
-              <tr>
-                <td>introduction</td>
+  <div class="col-md3">
+    <h2>User info</h2>
+      <table class="table">
+        <tbody>
+        <tr>
+          <%= image_tag user.get_profile_image(100,100) %>
+          <th>
+            name
+          </th>
+          <th>
+            <%= user.name %>
+          </th>
+          <tr>
+            <td>introduction</td>
 
-                <td>
-                <%= user.id %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <td>
+            <%= user.introduction %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block edit_user" do %>
+<%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block edit_user" do %>
     <i class="fas fa-user-cog"></i>
 
     <% end %>
-
-
-
-
-
-
-
 
 
   <h2>New book</h2>

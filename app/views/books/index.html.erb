@@ -1,13 +1,12 @@
-<div class="container px-5 px-sm-0">
   <%= flash[:notice] %>
+<div class="container px-5 px-sm-0">
   <div class="row">
 
   <%= render 'book', book: @book, user: @user %>
-
     <div class="col-md 8offset-md-1">
+
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
-  <% @books.each do |book| %>
         <thead>
           <th>
             <th>Title</th>
@@ -16,10 +15,13 @@
 
           </th>
         </thead>
-  <% end %>
       </table>
+  <% @books.each do |book| %>
       <div class="profile-container">
         <%= image_tag @user.get_profile_image(100,100) %>
+      </div>
+      <%= link_to""   %>
+  <% end %>
         <tr>
     </div>
   </div>

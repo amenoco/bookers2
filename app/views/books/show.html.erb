@@ -4,7 +4,31 @@
 <%= render 'books/book', book: @book, user: @user %>
 <div class="col-md 8offset-md-1">
 <h2>Book detail</h2>
-<p><%= @book.title %></p>
+<table class="table table-inverse">
+  <tbody>
+    <tr>
 
-<h2>本文</h2>
-<p><%= @book.body %></p>
+      <td>
+
+          <%= image_tag @user.get_profile_image(100,100) %>
+      <br>
+          <%= link_to @user.name %>
+
+      </td>
+      <td>
+          <%= link_to @book.title %>
+
+      </td>
+      <td>
+        <%= @book.body %>
+      </td>
+      <td>
+        <%= link_to edit_book_path(current_user), class: "btn btn-success btn-sm btn-block mb-3 edit_user" do %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
