@@ -5,18 +5,18 @@
           <table class="table">
             <tbody>
             <tr>
-              <%= image_tag @user.get_profile_image(100,100) %>
+              <%= image_tag user.get_profile_image(100,100) %>
               <th>
                 name
               </th>
               <th>
-                <%= @user.name %>
+                <%= user.name %>
               </th>
               <tr>
                 <td>introduction</td>
 
                 <td>
-                <%= @user. %>
+                <%= user.id %>
                 </td>
               </tr>
             </tbody>
@@ -36,7 +36,7 @@
 
 
   <h2>New book</h2>
-  <%= form_with model: @book do |f| %>
+  <%= form_with model: book do |f| %>
 <div class="form-group">
 
   <label for="book_title">Title</label>

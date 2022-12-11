@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @books = @user.books
+    @book = Book.new
   end
 
   def edit
@@ -18,8 +19,12 @@ class UsersController < ApplicationController
   end
 
   def index
-     @user =　Book.find
-     @books = @user.books
+    @books = Book.all
+    @book = Book.new
+    @user = current_user
+
+    # @user =　User.find(params[:id])
+    # @books = user.books
   end
 
   def destroy

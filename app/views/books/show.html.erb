@@ -1,5 +1,9 @@
-<p>books#show</p>
-<h2>タイトル</h2>
+<%= flash[:notice] %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+<%= render 'books/book', book: @book, user: @user %>
+<div class="col-md 8offset-md-1">
+<h2>Book detail</h2>
 <p><%= @book.title %></p>
 
 <h2>本文</h2>
