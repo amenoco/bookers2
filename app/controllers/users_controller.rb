@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = current_user
     user_path(current_user)
     if @user.update(user_params)
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = current_user
 
-    # @user =　User.find(params[:id])
+    @users = User.all
     # @books = user.books
   end
 

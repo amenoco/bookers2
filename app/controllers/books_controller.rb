@@ -24,6 +24,7 @@ class BooksController < ApplicationController
     flash[:notice] = "You have created book successfully."
     @books = Book.all
     @user = current_user
+    @new_book = Book.new
   end
 
   def edit
@@ -43,7 +44,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to request.referer
+    redirect_to books_path
   end
 
   private
