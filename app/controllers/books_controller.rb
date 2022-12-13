@@ -25,6 +25,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @user = current_user
     @new_book = Book.new
+    
   end
 
   def edit
@@ -37,7 +38,7 @@ class BooksController < ApplicationController
     @book.update(book_params)
        redirect_to book_path(@book)
 
-      # render :
+    
   end
 
 
@@ -49,6 +50,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :image)
   end
 end

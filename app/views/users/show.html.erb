@@ -3,7 +3,7 @@
   <div class="row">
 <%= render 'books/book', book: @book, user: @user %>
  <div class="col-md 8offset-md-1">
-      <h2>Users</h2>
+      <h2>Books</h2>
       <table class="table table-hover table-inverse">
               <thead>
                 <tr>
@@ -16,14 +16,16 @@
     <tr>
         <% @books.each do |book| %>
       <div class="profile-container">
-        <%= image_tag @user.get_profile_image(100,100) %>
 
-        
-          <% if @user.id == current_user.id %>
-        
-        
-          <%= link_to "show", users_path %>
-        
+
+       <%= image_tag book.user.get_profile_image(100,100) %>
+
+
+          <% if book.user.id == current_user.id %>
+
+
+          <%= link_to "show", book_path %>
+
         <% end %>
     </tr>
         <% end %>
