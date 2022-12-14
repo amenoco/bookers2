@@ -24,7 +24,7 @@
           <% if book.user.id == current_user.id %>
 
 
-          <%= link_to "show", book_path %>
+          <%= link_to book.title, book_path(book.id) %>
 
         <% end %>
     </tr>
