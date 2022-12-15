@@ -1,8 +1,8 @@
 <div class="container px-5 px-sm-0">
   <%= flash[:notice] %>
   <div class="row">
-<%= render 'books/book', book: @book, user: @user %>
- <div class="col-md 8offset-md-1">
+    <%= render 'books/book', book: @book, user: @user %>
+    <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
       <table class="table table-hover table-inverse">
               <thead>
@@ -13,16 +13,20 @@
                 </tr>
               </thead>
       </table>
-        <tbody>
-          <tr>
-
-              <% @users.each do |user| %>
-                <%= image_tag user.get_profile_image(100,100) %>
-                <%= user.name %>
-                <%= link_to "show", user_path(user) %>
-
-              <% end %>
-
-          </tr>
-        </tbody>
-        </div>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <div class="profile-container">
+                      
+                        <%= image_tag user.get_profile_image(100,100) %>
+                     
+                        <%= user.name %>
+                      
+                        <%= link_to "show", user_path(user) %>
+                      
+                <% end %>
+      
+                </tr>
+              </tbody>
+                    </div>
+  </div>

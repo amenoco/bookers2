@@ -9,19 +9,18 @@ class UsersController < ApplicationController
 
   def edit
     
-    @user = current_user
+  
+    
+    @user = User.find(params[:id])
+   
   end
-
   def update
+
+
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(current_user)
     
-    
-    @user = current_user
-    user_path(current_user)
-    if @user.update(user_params)
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
   end
 
   def index
@@ -48,5 +47,5 @@ private
       redirect_to user_path
     end
   end
-  
+
 end
