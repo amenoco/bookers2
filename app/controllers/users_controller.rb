@@ -1,28 +1,29 @@
 class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
-  def show
 
+
+  def show
+    
+    @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
-    @book = Book.new
   end
+   def create
+    flash[:notice] = "You have updated user successfully."
+   end
 
   def edit
-      @user = User.find(params[:id])
-      # if @user == current_user
-      #   render "edit"
-      # else
-      #   redirect_to user_path(current_user)
-      # end
+    @user = User.find(params[:id])
   end
 
   def update
-
-
+    flash[:notice] = "You have updated user successfully."
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
     redirect_to user_path(current_user)
-
+    else
+      render :edit
+    end
   end
 
   def index
@@ -31,7 +32,6 @@ class UsersController < ApplicationController
     @user = current_user
 
     @users = User.all
-    # @books = user.books
   end
 
   def destroy
@@ -49,5 +49,4 @@ private
       redirect_to user_path(login_user_id)
     end
   end
-
 end

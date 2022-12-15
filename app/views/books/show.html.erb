@@ -1,5 +1,13 @@
 <div class="container px-5 px-sm-0">
 <%= flash[:notice] %>
+<% if @new_book.errors.any? %>
+  <%= @new_book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @new_book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
   <div class="row">
 <%= render 'books/book', book: @new_book, user: @user %>
 <div class="col-md-8 offset-md-1">
@@ -8,18 +16,12 @@
   <tbody>
     <tr>
       <td>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
+
           <%= image_tag @book.user.get_profile_image(100,100) %>
       <br>
-          <%= link_to @user.name %>
+        <%= link_to user_path(@book.user.id) do %>
+          <%= @user.name %>
+        <% end %>
 
       </td>
       <td>
@@ -32,15 +34,14 @@
       <td>
         <% if @book.user == current_user %>
           <%= link_to edit_book_path(@book.id), class: "btn btn-success btn-sm btn-block mb-3 edit_user" do %>
-            edit
+            Edit
           <% end %>
       <td>
           <%= link_to book_path(@book.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
-            destroy
+            Destroy
           <% end %>
       </td>
         <% end %>
-<% end %>
 
     </tr>
   </tbody>
